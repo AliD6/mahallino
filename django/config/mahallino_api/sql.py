@@ -14,46 +14,55 @@ class PostConn():
         self.pnt = Point(self.lon , self.lat , srid=4326)
 
     def db_conn(self):
+
+        data  = []
         taxi = Transport.objects.annotate(distance=Distance('geom',self.pnt)).filter(fclass='taxi').order_by('distance')[:3]
         # taxi =  json.loads(serializers.serialize("json" ,taxi))[:3]
-        index = 1
-        TAXI = {}
+        # index = 1
+        Taxi = []
         for item in taxi:
-            TAXI[str(index)] = {"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y}
-            index = index+1
+            Taxi.append({"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y})
+            # index = index+1
+        TAXI = {"title" : "TAXI" , "id" : "304" , "value" : Taxi }
+        data.append(TAXI)
 
-        
         metro = Transport.objects.annotate(distance=Distance('geom',self.pnt)).filter(fclass='railway_station').order_by('distance')[:3]
-        index = 1
-        METRO = {}
+        # index = 1
+        Metro = []
         for item in metro:
-            METRO[str(index)] = {"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y}
-            index = index+1
+            Metro.append({"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y})
+            # index = index+1
+        METRO = {"title" : "METRO" , "id" : "301" , "value" : Metro }
+        data.append(METRO)
 
         bohran = Bohran.objects.annotate(distance=Distance('geom' , self.pnt)).order_by('distance')[:3]
-        index = 1
-        BOHRAN = {}
+        # index = 1
+        Bohran = {}
         for item in bohran:
-            BOHRAN[str(index)] = {"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y}
-            index = index + 1
-        
+            Bohran.append({"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y})
+            # index = index + 1
+        BOHRAN = {"title" : "BOHRAN" , "id" : "505" , "value" : Bohran}
+        data.append(BOHRAN)
+
         bus = Bus.objects.annotate(distance=Distance('geom' , self.pnt)).order_by('distance')[:3]
-        index = 1
-        BUS = {}
+        # index = 1
+        Bus = {}
         for item in bus:
-            BUS[str(index)] = {"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y}
-            index = index +1
-
-
+            Bus.append({"dist" : item.distance.m , "name" : item.name , "lon" : item.geom.x , "lat" : item.geom.y})
+            # index = index +1
+        BUS = {"title" : "BUS" , "id" : "303" , "value" : Bus}
+        data.append(BUS)
 
         busline = Busline.objects.annotate(distance=Distance('geom' , self.pnt)).order_by('distance')[:3]
-        index = 1
-        BUSLINE = {}
+        # index = 1
+        Busline = {}
         for item in busline:
-            BUSLINE[str(index)] = {"dist" : item.distance.m , "source":item.origin , "destination": item.destinatio , "coor" : json.loads(item.geom.json) }
+            Busline.append({"dist" : item.distance.m , "source":item.origin , "destination": item.destinatio , "coor" : json.loads(item.geom.json) })
             # print(type(json.loads(item.geom.json)))
-            index = index + 1
-        
+            # index = index + 1
+        BUSLINE = {"title" : "BUSLINE" , "id" : "305" , "value" : Busline}
+        data.append(BUSLINE)
+
         # roads = Roads.objects.annotate(distance=Distance('geom' , self.pnt)).order_by('distance')[:3]
         # index = 1
         # ROADS = {}
@@ -62,8 +71,7 @@ class PostConn():
         #     # print(type(json.loads(item.geom.json)))
         #     index = index + 1
 
-
-        return({"status" : "200" , "message" : "done" , "taxi" : TAXI , "metro": METRO , "BOHRAN" : BOHRAN , "BUS" : BUS , "BUSLINE" : BUSLINE })
+        return(data)
     
 
 
