@@ -15,7 +15,6 @@ import random
 from django.contrib.gis.geos import Point
 import jwt
 from django.conf import settings
-import ast
 # Create your views here.
 
 
@@ -66,14 +65,17 @@ class index(APIView):
         # connect to oracle and take query results as a json
         oracle_conn = db_conn()
         oracle_data = oracle_conn.call( str(lat) + ',' + str(lon))
-        oracle_data = ast.literal_eval(oracle_data)
+        oracle_data = oracle_data
 
         # connect to postgres and take query results as a json
         Post = PostConn(lat,lon).db_conn()
 
 
         # concat two jsons
-        data = oracle_data + Post
+        # data = {**oracle_data , **Post}
+        Post.append(oracle_data)
+        
+        data = Post
 
         return Response(data=data , headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'http://localhost:3000','Access-Control-Allow-Credentials':True, 'Access-Control-Allow-Methods' : 'OPTIONS', 'Access-Control-Allow-Headers' : ['Origin', 'Content-Type', 'Accept']})
 

@@ -27,6 +27,9 @@ class db_conn(object):
         self.channel.basic_publish(exchange='' , routing_key='oracle_queue' , properties=pika.BasicProperties(reply_to=self.callback_queue , correlation_id=self.corr_id) , body=data)
         while self.response is None:
             self.connection.process_data_events()
+        # self.response = self.response.replace("\'", "\"")
+        # print(self.response)
+        # print(type(self.response))
         return json.loads(self.response)
 
 
