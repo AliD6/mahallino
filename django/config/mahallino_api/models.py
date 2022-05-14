@@ -31,7 +31,7 @@ class Bohran(models.Model):
     address = models.CharField(max_length=254 , null=True)
     explain = models.CharField(max_length=254 , null=True)
     priority = models.CharField(max_length=5 , null=True)
-    geom = models.PointField(srid=32639)
+    geom = models.PointField(srid=4326)
 
 
 
@@ -89,7 +89,7 @@ class Bus(models.Model):
     stand = models.CharField(max_length=10,null=True)
     transportm = models.CharField(max_length=70,null=True)
     id_unique = models.FloatField()
-    geom = models.PointField(srid=32639)
+    geom = models.PointField(srid=4326)
 
 
 class Busline(models.Model):
@@ -127,7 +127,7 @@ class Busline(models.Model):
     trafficzon = models.CharField(max_length=70,null=True)
     transportm = models.CharField(max_length=70,null=True)
     shape_len = models.FloatField()
-    geom = models.MultiLineStringField(srid=32639)
+    geom = models.MultiLineStringField(srid=4326)
 
 
 

@@ -56,15 +56,15 @@ class db_conn():
         #    counter = counter +1
         brt = []
         for row in cursor.execute(self.create_strings()['BRT']) :
-            brt.append({"name" : row[0] , "dist" : row[4] , "lon" : row[2] , "lat" : row[3]})
-        BRT = {"title" : "BRT" , "id" : "302" , "value" : brt}
+            brt.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        BRT = {"title" : "BRT" , "id" : 302 , "value" : brt}
 
-        print(BRT)
+        # print(BRT)
 
         hospital = []
         for row in cursor.execute(self.create_strings()['HOSPITAL']) :
-            hospital.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        HOSPITAL = {"title" : "HOSPITAL" , "id" : "503" , "value" : hospital}
+            hospital.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        HOSPITAL = {"title" : "HOSPITAL" , "id" : 503 , "value" : hospital}
 
         # HOSPITAL = {}
         # counter = 1
@@ -79,8 +79,8 @@ class db_conn():
         
         fuel = []
         for row in cursor.execute(self.create_strings()['FUEL']) :
-            fuel.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        FUEL = {"title" : "FUEL" , "id" : "204" , "value" : fuel}
+            fuel.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        FUEL = {"title" : "FUEL" , "id" : 204 , "value" : fuel}
 
         # FUEL = {}
         # counter = 1
@@ -95,8 +95,8 @@ class db_conn():
 
         fire = []
         for row in cursor.execute(self.create_strings()['FIRE']) :
-            fire.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        FIRE = {"title" : "FIRE" , "id" : "502" , "value" : fire}
+            fire.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        FIRE = {"title" : "FIRE" , "id" : 502 , "value" : fire}
         
         # FIRE = {}
         # counter = 1
@@ -111,8 +111,8 @@ class db_conn():
 
         police = []
         for row in cursor.execute(self.create_strings()['POLICE']) :
-            police.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        POLICE = {"title" : "POLICE" , "id" : "501" , "value" : police}
+            police.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        POLICE = {"title" : "POLICE" , "id" : 501 , "value" : police}
 
         # POLICE = {}
         # counter = 1
@@ -127,8 +127,8 @@ class db_conn():
 
         pharmacy = []
         for row in cursor.execute(self.create_strings()['PHARMACY']) :
-            pharmacy.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        PHARMACY = {"title" : "PHARMACY" , "id" : "404" , "value" : pharmacy}
+            pharmacy.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        PHARMACY = {"title" : "PHARMACY" , "id" : 404 , "value" : pharmacy}
 
         # PHARMACY = {}
         # counter = 1
@@ -144,8 +144,8 @@ class db_conn():
 
         cng = []
         for row in cursor.execute(self.create_strings()['CNG']) :
-            cng.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        CNG = {"title" : "CNG" , "id" : "205" , "value" : cng}
+            cng.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        CNG = {"title" : "CNG" , "id" : 205 , "value" : cng}
 
         # CNG = {}
         # counter = 1
@@ -160,8 +160,8 @@ class db_conn():
 
         gym = []
         for row in cursor.execute(self.create_strings()['GYM']) :
-            gym.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        GYM = {"title" : "GYM" , "id" : "405" , "value" : gym}
+            gym.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        GYM = {"title" : "GYM" , "id" : 405 , "value" : gym}
 
         # GYM = {}
         # counter = 1
@@ -176,8 +176,8 @@ class db_conn():
         
         hotel = []
         for row in cursor.execute(self.create_strings()['HOTEL']) :
-            hotel.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        HOTEL = {"title" : "HOTEL" , "id" : "409" , "value" : hotel}
+            hotel.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        HOTEL = {"title" : "HOTEL" , "id" : 409 , "value" : hotel}
 
         # HOTEL = {}
         # counter = 1
@@ -192,8 +192,8 @@ class db_conn():
         
         park = []
         for row in cursor.execute(self.create_strings()['PARK']) :
-            park.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        PARK = {"title" : "PARK" , "id" : "403" , "value" : park}
+            park.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        PARK = {"title" : "PARK" , "id" : 403 , "value" : park}
 
         # PARK = {}
         # counter = 1
@@ -208,8 +208,8 @@ class db_conn():
 
         pool = []
         for row in cursor.execute(self.create_strings()['POOL']) :
-            pool.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        POOL = {"title" : "POOL" , "id" : "406" , "value" : pool}
+            pool.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        POOL = {"title" : "POOL" , "id" : 406 , "value" : pool}
 
         # POOL = {}
         # counter = 1
@@ -224,8 +224,8 @@ class db_conn():
 
         school = []
         for row in cursor.execute(self.create_strings()['SCHOOL']) :
-            school.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        SCHOOL = {"title" : "SCHOOL" , "id" : "401" , "value" : school}
+            school.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        SCHOOL = {"title" : "SCHOOL" , "id" : 401 , "value" : school}
 
 
         # SCHOOL = {}
@@ -242,8 +242,8 @@ class db_conn():
 
         shop = []
         for row in cursor.execute(self.create_strings()['SHOP']) :
-            shop.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        SHOP = {"title" : "SHOP" , "id" : "407" , "value" : shop}
+            shop.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        SHOP = {"title" : "SHOP" , "id" : 407 , "value" : shop}
 
         # SHOP = {}
         # counter = 1
@@ -258,8 +258,8 @@ class db_conn():
 
         zoo = []
         for row in cursor.execute(self.create_strings()['ZOO']) :
-            zoo.append({"name" : row[0] , "dist" : row[1] , "lon" : row[2] , "lat" : row[3]})
-        ZOO = {"title" : "ZOO" , "id" : "407" , "value" : zoo}
+            zoo.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
+        ZOO = {"title" : "ZOO" , "id" : 410 , "value" : zoo}
 
         # ZOO = {}
         # counter = 1
@@ -286,23 +286,23 @@ class db_conn():
         # print(ALUDEGI)
 
         TRAFIC = cursor.execute(self.create_strings()['TRAFIC'])
-        # TRAFIC = [row for row in TRAFIC][0][0]
+        TRAFIC = [row for row in TRAFIC][0][0]
 
         tarh = []
         # for row in cursor.execute(self.create_strings()['ZOO']) :
-        tarh.append({"name" : "زوج و فرد" , "state" : [row for row in TRAFIC][0][0] })
-        tarh.append({"name" : "آلودگی هوا" , "state" : ALUDEGI })
-        TARH = {"title" : "TARH" , "id" : "203" , "value" : tarh}
+        tarh.append({"name" : "زوج و فرد" , "state" : True if TRAFIC == 'TRUE' else False })
+        tarh.append({"name" : "آلودگی هوا" , "state" : True if TRAFIC == 'TRUE' else False })
+        TARH = {"title" : "TARH" , "id" : 203 , "value" : tarh}
 
         BUSY = cursor.execute(self.create_strings()['BUSY'])
         # BUSY = [row for row in BUSY][0][0]
-        terafic = {"title" : "terafic" , "id" : "201" , "value" : [row for row in BUSY][0][0] }
+        terafic = {"title" : "terafic" , "id" : 201 , "value" : [row for row in BUSY][0][0] }
         
 
 
         connection.commit()
 
-    return str(json.dumps({"status" : "200" , "BRT" : HOSPITAL ,"HOSPITAL" : HOSPITAL ,"FUEL" : FUEL ,"FIRE" : FIRE ,"POLICE" : POLICE ,"PHARMACY" : PHARMACY , "CNG" : CNG , "GYM" : GYM , "HOTEL" : HOTEL , "PARK" : PARK , "POOL" : POOL , "SCHOOL" : SCHOOL , "SHOP" : SHOP , "ZOO" : ZOO , "TARH" : TARH ,  "terafic" : terafic }))
+    return str(json.dumps({"status" : "200" , "BRT" : BRT ,"HOSPITAL" : HOSPITAL ,"FUEL" : FUEL ,"FIRE" : FIRE ,"POLICE" : POLICE ,"PHARMACY" : PHARMACY , "CNG" : CNG , "GYM" : GYM , "HOTEL" : HOTEL , "PARK" : PARK , "POOL" : POOL , "SCHOOL" : SCHOOL , "SHOP" : SHOP , "ZOO" : ZOO , "TARH" : TARH ,  "terafic" : terafic }))
 
 # a = db_conn(lat = '35.707664' , lon = '51.395552')
 # a.conn()
