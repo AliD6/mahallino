@@ -43,6 +43,8 @@ class db_conn():
     with cx_Oracle.connect(user = 'SEDREH_USER' , password = '20672067ali' , dsn = 'localhost/orcl' , encoding = 'UTF-8') as connection:
         cursor = connection.cursor()
 
+        data = []
+
         # BRT = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['BRT']) :
@@ -61,10 +63,14 @@ class db_conn():
 
         # print(BRT)
 
+        data.append(BRT)
+
         hospital = []
         for row in cursor.execute(self.create_strings()['HOSPITAL']) :
             hospital.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         HOSPITAL = {"title" : "HOSPITAL" , "id" : 503 , "value" : hospital}
+
+        data.append(HOSPITAL)
 
         # HOSPITAL = {}
         # counter = 1
@@ -82,6 +88,8 @@ class db_conn():
             fuel.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         FUEL = {"title" : "FUEL" , "id" : 204 , "value" : fuel}
 
+        data.append(FUEL)
+
         # FUEL = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['FUEL']) :
@@ -98,6 +106,8 @@ class db_conn():
             fire.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         FIRE = {"title" : "FIRE" , "id" : 502 , "value" : fire}
         
+        data.append(FIRE)
+
         # FIRE = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['FIRE']) :
@@ -114,6 +124,8 @@ class db_conn():
             police.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         POLICE = {"title" : "POLICE" , "id" : 501 , "value" : police}
 
+        data.append(POLICE)
+
         # POLICE = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['POLICE']) :
@@ -129,6 +141,8 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['PHARMACY']) :
             pharmacy.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         PHARMACY = {"title" : "PHARMACY" , "id" : 404 , "value" : pharmacy}
+
+        data.append(PHARMACY)
 
         # PHARMACY = {}
         # counter = 1
@@ -147,6 +161,8 @@ class db_conn():
             cng.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         CNG = {"title" : "CNG" , "id" : 205 , "value" : cng}
 
+        data.append(CNG)
+
         # CNG = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['CNG']) :
@@ -162,6 +178,8 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['GYM']) :
             gym.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         GYM = {"title" : "GYM" , "id" : 405 , "value" : gym}
+
+        data.append(GYM)
 
         # GYM = {}
         # counter = 1
@@ -179,6 +197,8 @@ class db_conn():
             hotel.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         HOTEL = {"title" : "HOTEL" , "id" : 409 , "value" : hotel}
 
+        data.append(HOTEL)
+
         # HOTEL = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['HOTEL']) :
@@ -195,6 +215,8 @@ class db_conn():
             park.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         PARK = {"title" : "PARK" , "id" : 403 , "value" : park}
 
+        data.append(PARK)
+
         # PARK = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['PARK']) :
@@ -210,7 +232,7 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['POOL']) :
             pool.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         POOL = {"title" : "POOL" , "id" : 406 , "value" : pool}
-
+        data.append(POOL)
         # POOL = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['POOL']) :
@@ -226,7 +248,7 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['SCHOOL']) :
             school.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         SCHOOL = {"title" : "SCHOOL" , "id" : 401 , "value" : school}
-
+        data.append(SCHOOL)
 
         # SCHOOL = {}
         # counter = 1
@@ -244,7 +266,7 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['SHOP']) :
             shop.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         SHOP = {"title" : "SHOP" , "id" : 407 , "value" : shop}
-
+        data.append(SHOP)
         # SHOP = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['SHOP']) :
@@ -260,7 +282,7 @@ class db_conn():
         for row in cursor.execute(self.create_strings()['ZOO']) :
             zoo.append({"name" : row[0] , "dist" : row[3] , "lon" : row[1] , "lat" : row[2]})
         ZOO = {"title" : "ZOO" , "id" : 410 , "value" : zoo}
-
+        data.append(ZOO)
         # ZOO = {}
         # counter = 1
         # for row in cursor.execute(self.create_strings()['ZOO']) :
@@ -293,16 +315,17 @@ class db_conn():
         tarh.append({"name" : "زوج و فرد" , "state" : True if TRAFIC == 'TRUE' else False })
         tarh.append({"name" : "آلودگی هوا" , "state" : True if TRAFIC == 'TRUE' else False })
         TARH = {"title" : "TARH" , "id" : 203 , "value" : tarh}
+        data.append(TARH)
 
         BUSY = cursor.execute(self.create_strings()['BUSY'])
         # BUSY = [row for row in BUSY][0][0]
         terafic = {"title" : "terafic" , "id" : 201 , "value" : [row for row in BUSY][0][0] }
-        
+        data.append(terafic)
 
 
         connection.commit()
-
-    return str(json.dumps({"status" : "200" , "BRT" : BRT ,"HOSPITAL" : HOSPITAL ,"FUEL" : FUEL ,"FIRE" : FIRE ,"POLICE" : POLICE ,"PHARMACY" : PHARMACY , "CNG" : CNG , "GYM" : GYM , "HOTEL" : HOTEL , "PARK" : PARK , "POOL" : POOL , "SCHOOL" : SCHOOL , "SHOP" : SHOP , "ZOO" : ZOO , "TARH" : TARH ,  "terafic" : terafic }))
+    return str(data)
+    # return str(json.dumps({"status" : "200" , "BRT" : BRT ,"HOSPITAL" : HOSPITAL ,"FUEL" : FUEL ,"FIRE" : FIRE ,"POLICE" : POLICE ,"PHARMACY" : PHARMACY , "CNG" : CNG , "GYM" : GYM , "HOTEL" : HOTEL , "PARK" : PARK , "POOL" : POOL , "SCHOOL" : SCHOOL , "SHOP" : SHOP , "ZOO" : ZOO , "TARH" : TARH ,  "terafic" : terafic }))
 
 # a = db_conn(lat = '35.707664' , lon = '51.395552')
 # a.conn()

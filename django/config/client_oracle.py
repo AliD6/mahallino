@@ -28,9 +28,10 @@ class db_conn(object):
         while self.response is None:
             self.connection.process_data_events()
         # self.response = self.response.replace("\'", "\"")
-        # print(self.response)
+        self.response = self.response.decode("utf-8").replace("\'" , "\"")
+        # print(str(self.response))
         # print(type(self.response))
-        return json.loads(self.response)
+        return self.response
 
 
 

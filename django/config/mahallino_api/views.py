@@ -15,6 +15,7 @@ import random
 from django.contrib.gis.geos import Point
 import jwt
 from django.conf import settings
+import ast
 # Create your views here.
 
 
@@ -24,8 +25,8 @@ class index(APIView):
 
     def post(self, request):
 
-        print('=='*50)
-        print('this')
+        # print('=='*50)
+        # print('this')
 
         try:
 
@@ -38,12 +39,12 @@ class index(APIView):
         except:
             pass
 
-        print('data' , request.data)
+        # print('data' , request.data)
         # check if lat or lon is null 
         lat =float(request.data.get('lat'))
         lon = float(request.data.get('lon'))
-        print('lat' ,type(lat))
-        print('lon' , type(lon))
+        # print('lat' ,type(lat))
+        # print('lon' , type(lon))
         if str(lat) is None or str(lon) is None :
             return Response({"status" : "400" , "message" : "lat or lon is none"})
 
@@ -65,7 +66,10 @@ class index(APIView):
         # connect to oracle and take query results as a json
         oracle_conn = db_conn()
         oracle_data = oracle_conn.call( str(lat) + ',' + str(lon))
+        # print(type(oracle_data))
         oracle_data = oracle_data
+        oracle_data = ast.literal_eval(oracle_data)
+        print(type(oracle_data[0]))
 
         # connect to postgres and take query results as a json
         Post = PostConn(lat,lon).db_conn()
@@ -73,9 +77,9 @@ class index(APIView):
 
         # concat two jsons
         # data = {**oracle_data , **Post}
-        Post.append(oracle_data)
+        # Post.append(oracle_data)
         
-        data = Post
+        data = Post + oracle_data
 
         return Response(data=data , headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'http://localhost:3000','Access-Control-Allow-Credentials':True, 'Access-Control-Allow-Methods' : 'OPTIONS', 'Access-Control-Allow-Headers' : ['Origin', 'Content-Type', 'Accept']})
 
