@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'MAHALLINO',
+        'NAME': 'mahallino',
         'USER': 'postgres',
-        'PASSWORD': '20672067ali',
+        'PASSWORD': '46802196',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -159,3 +159,25 @@ if os.name == 'nt':
 
 
 # APPEND_SLASH=False
+
+
+GEOSERVER = {
+    # 'HOST': os.environ.get('GEOSERVER_HOST'),
+    'HOST' : '0.0.0.0',
+    # 'IP': os.environ.get('GEOSERVER_HOST_IP'),
+    # 'IP' :
+    # 'PORT': os.environ.get('GEOSERVER_PORT'),
+    'PORT' : '8080',
+    # 'USERNAME': os.environ.get('GEOSERVER_USERNAME'),
+    'USERNAME' : 'sedreh',
+    # 'PASSWORD': os.environ.get('GEOSERVER_PASSWORD'),
+    'PASSWORD' : 'ABcd1234!@',
+    # 'WORKSPACE': os.environ.get('GEOSERVER_WORKSPACE'),
+    'WORKSPACE': 'mahallino',
+    # 'NAMESPACE': os.environ.get('GEOSERVER_NAMESPACE'),
+    'NAMESPACE': 'localhost',
+    'MEDIA_ROOT': 'media/geoserver/',
+    # 'RASTER_URL' : os.environ.get('GEOSERVER_RASTER_URL'),
+    'DATA_URL' : os.path.join(BASE_DIR , 'mahallino_api' , 'data/'),
+    'GEOSERVER_URL' : '/opt/geoserver/data_dir'
+}

@@ -1,0 +1,4 @@
+Warning 6: Normalized/laundered field name: 'description' to 'descriptio'
+Warning 6: Normalized/laundered field name: 'description' to 'descriptio'
+Warning 1: Value 'https://tehdooni.com | تهدونی<br><br>ساعت اجرای طرح ترافیک:<br><br>شنبه تا چهارشنبه ساعت 6:30 تا 19<br><br>روزهای پنجشنبه و جمعه و تعطیلات رسمی، تردد آزاد است.‎‎‎<br>‎‎‎<br>‎<br>‎' of field descriptio has been truncated to 254 characters.  This warning will not be emitted any more for that layer.
+Warning 6: Normalized/laundered field name: 'description' to 'descriptio'

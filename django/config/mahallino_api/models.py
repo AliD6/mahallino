@@ -145,3 +145,244 @@ class Roads(models.Model):
     geom = models.MultiLineStringField(srid=32639)
 
 
+class Hospital(models.Model):
+    objectid_1 = models.BigIntegerField()
+    objectid = models.BigIntegerField()
+    fid_medica = models.BigIntegerField()
+    entity = models.CharField(max_length=14,null=True)
+    mslink_dmr = models.FloatField()
+    fname = models.CharField(max_length=32,null=True)
+    mapid = models.BigIntegerField()
+    name = models.CharField(max_length=37,null=True)
+    kind = models.CharField(max_length=33,null=True)
+    capacity = models.BigIntegerField()
+    operation_field = models.CharField(max_length=17,null=True)
+    recno = models.BigIntegerField()
+    fid_medi_1 = models.BigIntegerField()
+    entity_1 = models.CharField(max_length=14,null=True)
+    mslink_d_1 = models.FloatField()
+    fname_1 = models.CharField(max_length=32,null=True)
+    mapid_1 = models.BigIntegerField()
+    name_1 = models.CharField(max_length=33,null=True)
+    kind_1 = models.CharField(max_length=11,null=True)
+    capacity_1 = models.BigIntegerField()
+    operation1 = models.CharField(max_length=17,null=True)
+    recno_1 = models.BigIntegerField()
+    fid_hospit = models.BigIntegerField()
+    osm_id = models.CharField(max_length=10,null=True)
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name_12 = models.CharField(max_length=100,null=True)
+    shape_leng = models.FloatField()
+    orig_fid = models.BigIntegerField()
+    geom = models.MultiPointField(srid=4326)
+
+
+class Fire(models.Model):
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Police(models.Model):
+    osm_id = models.CharField(max_length=10,null=True)
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Pharmacy(models.Model):
+    osm_id = models.CharField(max_length=10,null=True)
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+class School(models.Model):
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    orig_fid = models.BigIntegerField()
+    geom = models.MultiPointField(srid=4326)
+
+class Aludegi(models.Model):
+    name = models.CharField(max_length=80,null=True)
+    descriptio = models.CharField(max_length=253,null=True)
+    geom = models.MultiPolygonField(srid=4326)
+
+class Trafic(models.Model):
+    name = models.CharField(max_length=80,null=True)
+    descriptio = models.CharField(max_length=254,null=True)
+    geom = models.MultiPolygonField(srid=4326)
+
+class Busy(models.Model):
+    osm_id = models.CharField(max_length=10,null=True)
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Park(models.Model):
+    objectid_1 = models.BigIntegerField()
+    name = models.CharField(max_length=100,null=True)
+    objectid = models.BigIntegerField()
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    orig_fid = models.BigIntegerField()
+    geom = models.MultiPointField(srid=4326)
+
+
+class Pool(models.Model):
+    objectid = models.BigIntegerField()
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    orig_fid = models.BigIntegerField()
+    geom = models.MultiPointField(srid=4326)
+
+
+class Hotel(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Zoo(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Cng(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Shop(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Fuel(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Gym(models.Model):
+    osm_id = models.CharField(max_length=254,null=True)
+    name = models.CharField(max_length=254,null=True)
+    barrier = models.CharField(max_length=254,null=True)
+    highway = models.CharField(max_length=254,null=True)
+    ref = models.CharField(max_length=254,null=True)
+    address = models.CharField(max_length=254,null=True)
+    is_in = models.CharField(max_length=254,null=True)
+    place = models.CharField(max_length=254,null=True)
+    man_made = models.CharField(max_length=254,null=True)
+    other_tags = models.CharField(max_length=254,null=True)
+    geom = models.MultiPointField(srid=4326)
+
+
+class Mahalle(models.Model):
+    objectid_1 = models.BigIntegerField()
+    region = models.BigIntegerField()
+    nahiye = models.FloatField()
+    pop85 = models.FloatField()
+    pop85_zan = models.FloatField()
+    pop85_mard = models.FloatField()
+    khanvar = models.FloatField()
+    mahale_nam = models.CharField(max_length=254,null=True)
+    mahale_cod = models.FloatField()
+    pop90_kol = models.FloatField()
+    pop90_zan = models.FloatField()
+    pop90_mard = models.FloatField()
+    tedad90_kh = models.FloatField()
+    basavad_ko = models.FloatField()
+    basavad_ma = models.FloatField()
+    basavad_za = models.FloatField()
+    bisavad_ko = models.FloatField()
+    bisavad_ma = models.FloatField()
+    bisavad_za = models.FloatField()
+    bishaz10sa = models.FloatField()
+    bishaz10_1 = models.FloatField()
+    bishaz10_2 = models.FloatField()
+    mohajeran_field = models.FloatField()
+    mohajeran1 = models.FloatField()
+    mohajera_1 = models.FloatField()
+    shaghelan_field = models.FloatField()
+    bikaran_bi = models.FloatField()
+    shaghelan1 = models.FloatField()
+    bikaran_1 = models.FloatField()
+    shaghela_1 = models.FloatField()
+    bikaran_2 = models.FloatField()
+    pop_malul_field = models.FloatField()
+    pop_malul1 = models.FloatField()
+    pop_malu_1 = models.FloatField()
+    masahat_ma = models.FloatField()
+    tarakom_ja = models.FloatField()
+    shape_leng = models.FloatField()
+    shape_area = models.FloatField()
+    pop95_kol = models.BigIntegerField()
+    pop95_zan = models.BigIntegerField()
+    pop95_mard = models.BigIntegerField()
+    geom = models.MultiPolygonField(srid=4326)
+
+
+class Mantaghe(models.Model):
+    shape_leng = models.FloatField()
+    shape_area = models.FloatField()
+    mantagheh = models.IntegerField()
+    geom = models.MultiPolygonField(srid=4326)
+
+
+class Brt(models.Model):
+    osm_id = models.CharField(max_length=10,null=True)
+    code = models.BigIntegerField()
+    fclass = models.CharField(max_length=28,null=True)
+    name = models.CharField(max_length=100,null=True)
+    line = models.CharField(max_length=2 , null=True , blank=True)
+    geom = models.MultiPointField(srid=4326)
